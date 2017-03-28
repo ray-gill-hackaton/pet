@@ -1,7 +1,9 @@
 language: java
 jdk:
   - oraclejdk8
-before_install: cd pet-client
+before_install:
+  - cd pet-client
+  - "npm install -g npm@^3"
 node_js: "6"
 install: "npm install"
 before_script: cd pet-client

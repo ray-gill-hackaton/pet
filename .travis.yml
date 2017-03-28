@@ -1,6 +1,11 @@
 language: java
 jdk:
 - oraclejdk8
+cache:
+  directories:
+  - $HOME/.m2
+  - pet-client/node_modules
+  - pet-client/bower_components
 before_install:
 - npm install -g npm@^3
 - npm install -g bower
@@ -27,8 +32,3 @@ deploy:
   api: --skip-ssl-validation https://api.pcf-system.intware.com
   organization: XtremeLearning
   space: travis-dev
-cache:
-  directories:
-   - $HOME/.m2
-   - pet-client/node_modules
-   - pet-client/bower_components

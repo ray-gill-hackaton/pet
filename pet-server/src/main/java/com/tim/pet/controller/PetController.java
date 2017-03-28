@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.tim.pet.controller.request.AddPetRequest;
 import com.tim.pet.dao.entity.Pet;
@@ -17,6 +18,7 @@ import com.tim.pet.service.IPetService;
 
 @EnableAutoConfiguration
 @Controller
+@CrossOrigin
 public class PetController {
 	
 	public static final Logger LOGGER = LoggerFactory.getLogger(PetController.class);

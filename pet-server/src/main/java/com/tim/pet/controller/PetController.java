@@ -18,7 +18,7 @@ import com.tim.pet.service.IPetService;
 
 @EnableAutoConfiguration
 @Controller
-@CrossOrigin
+@CrossOrigin(origins = "*")
 public class PetController {
 	
 	public static final Logger LOGGER = LoggerFactory.getLogger(PetController.class);

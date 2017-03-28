@@ -8,4 +8,5 @@ before_install:
 node_js: "6"
 install: "npm install"
 script: 
+  - "bower install -g"
   - "npm test"

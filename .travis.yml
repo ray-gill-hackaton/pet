@@ -4,7 +4,8 @@ jdk:
 before_install:
   - cd pet-client
   - "npm install -g npm@^3"
+  - "bower install -g"
 node_js: "6"
 install: "npm install"
-before_script: cd pet-client
-script: "npm test"
+script: 
+  - "npm test"

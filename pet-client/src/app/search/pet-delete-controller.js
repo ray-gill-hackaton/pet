@@ -6,7 +6,7 @@
     .controller('PetDeleteController', PetDeleteController);
 
   /** @ngInject */
-  function PetDeleteController($log, $http, $modalInstance, pet, petSearchService) {
+  function PetDeleteController($log, $http, $modalInstance, pet) {
     var vm = this;
     vm.pet = pet;
     vm.deletePet = deletePet;

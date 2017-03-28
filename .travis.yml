@@ -4,8 +4,8 @@ jdk:
 cache:
   directories:
   - $HOME/.m2
-  - pet-client/node_modules
-  - pet-client/bower_components
+  - $HOME/pet/pet-client/node_modules
+  - $HOME/pet/pet-client/bower_components
 before_install:
 - npm install -g npm@^3
 - npm install -g bower

@@ -27,3 +27,8 @@ deploy:
   api: --skip-ssl-validation https://api.pcf-system.intware.com
   organization: XtremeLearning
   space: travis-dev
+cache:
+  directories:
+   - $HOME/.m2
+   - pet-client/node_modules
+   - pet-client/bower_components

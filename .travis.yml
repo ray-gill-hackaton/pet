@@ -1,14 +1,28 @@
 language: java
 jdk:
-  - oraclejdk8
+- oraclejdk8
 before_install:
-  - "npm install -g npm@^3"
-  - "npm install -g bower"
-node_js: "6"
+- npm install -g npm@^3
+- npm install -g bower
+node_js: '6'
 install:
-  - "mvn clean install"
-script: 
-  - cd pet-client
-  - "npm install"
-  - "bower install"
-  - "npm test"
+- mvn clean install
+script:
+- cd pet-client
+- npm install
+- bower install
+- npm test
+- cd ..
+- mkdir target
+- cp ./pet-server/target/pet-server-*.jar ./target/
+#deploy:
+#  password:
+#    secure: wLOBSjHBXv3UZjdwLeyYlbH7FBaJZTdvO0mK2KVSl2I2sZjZj+cdyvRXVLduNY+Vn6OOg2Vx7gsKAyC/FUa9UqeZ4Gkk7npgWzwJEF+uaGTqQa8LEH7h4pum2XfvgX3PHIa8+bp5BbgxSWEv+lgKqpyu0NkjpXuGmmDtI0tQieUBbp04EraUK/XAAx7n6SeIUio6hdBQoz2NqIDb6+N0I5Dd6DwQfVlOLW+C97yqqU5wYb78UEjfNwdQ1cVmv2fgLxyT6cfG14ic2ilW80bT1cPiIo2+kY/lfVS+HMJK4s0eAC5Vm2Yqe/Yqwumhe3AhuLOL8HccAlh8s22TirmruaM7RnW1UHj8dGFsaVQB+E7QRHYPpneN/rZwW0OFPXSZoH1QA/JJELhM119W9PbhbCM2M1p1jZsJIEy9EqPfJ8PiHRp36CTxB5YmqG85pc89AjVH6mo6XtUSBSPJCCbrQKBrQ3Cfa68V0dQqeFV78PXIauH+EsO3wIS5H6e/tg3I8JpUz20CToQjs3iZ0gsZl+5Rf9sk5iy2DJAWyAnSxU67hLitJSQ+daLW2qr1N1wiXtoXbmL2cmEcQTSliHRa/d/8DbDZbzx7D0gz7IU5xGLwuqhO+RjqPYjyIR5rPaTfgZO1rEpKtnVtBJR7KFk+TaTVgsprYWShnb6ziOX4aHs=
+ deploy:
+   edge: true
+   provider: cloudfoundry
+   username: Ray.Gill
+   password: wLOBSjHBXv3UZjdwLeyYlbH7FBaJZTdvO0mK2KVSl2I2sZjZj+cdyvRXVLduNY+Vn6OOg2Vx7gsKAyC/FUa9UqeZ4Gkk7npgWzwJEF+uaGTqQa8LEH7h4pum2XfvgX3PHIa8+bp5BbgxSWEv+lgKqpyu0NkjpXuGmmDtI0tQieUBbp04EraUK/XAAx7n6SeIUio6hdBQoz2NqIDb6+N0I5Dd6DwQfVlOLW+C97yqqU5wYb78UEjfNwdQ1cVmv2fgLxyT6cfG14ic2ilW80bT1cPiIo2+kY/lfVS+HMJK4s0eAC5Vm2Yqe/Yqwumhe3AhuLOL8HccAlh8s22TirmruaM7RnW1UHj8dGFsaVQB+E7QRHYPpneN/rZwW0OFPXSZoH1QA/JJELhM119W9PbhbCM2M1p1jZsJIEy9EqPfJ8PiHRp36CTxB5YmqG85pc89AjVH6mo6XtUSBSPJCCbrQKBrQ3Cfa68V0dQqeFV78PXIauH+EsO3wIS5H6e/tg3I8JpUz20CToQjs3iZ0gsZl+5Rf9sk5iy2DJAWyAnSxU67hLitJSQ+daLW2qr1N1wiXtoXbmL2cmEcQTSliHRa/d/8DbDZbzx7D0gz7IU5xGLwuqhO+RjqPYjyIR5rPaTfgZO1rEpKtnVtBJR7KFk+TaTVgsprYWShnb6ziOX4aHs=
+   api: https://api.pcf-system.intware.com
+   organization: XtremeLearning
+   space: travis-dev

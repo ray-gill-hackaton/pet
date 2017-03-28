@@ -2,11 +2,13 @@ language: java
 jdk:
   - oraclejdk8
 before_install:
-  - cd pet-client
   - "npm install -g npm@^3"
   - "npm install -g bower"
 node_js: "6"
-install: "npm install"
+install:
+  - "mvn clean install"
 script: 
+  - cd pet-client
+  - "npm install"
   - "bower install"
   - "npm test"

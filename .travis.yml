@@ -7,9 +7,11 @@ cache:
   - $HOME/pet/pet-client/node_modules
   - $HOME/pet/pet-client/bower_components
 before_install:
-- npm install -g npm@^3
+- npm install -g npm@^3.10.10
 - npm install -g bower
-node_js: '6'
+- npm install -g phantomjs@^2.1.1
+- npm install -g protractor
+node_js: '6.10.1'
 install:
 - mvn clean install
 script:

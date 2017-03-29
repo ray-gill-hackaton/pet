@@ -32,3 +32,7 @@ deploy:
   api: --skip-ssl-validation https://api.pcf-system.intware.com
   organization: XtremeLearning
   space: travis-dev
+#TODO: deploy client to CF (deploy dist folder)
+after_deploy:
+- cd ../pet-client
+- gulp protractor

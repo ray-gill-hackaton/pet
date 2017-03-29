@@ -4,8 +4,6 @@
 (function () {
   'use strict';
 
-  var serverDomain = '//pet-server-team-2.pcf-apps.intware.com';
-
   angular.module('petClient')
     .factory('loginService', loginService);
 
@@ -25,7 +23,7 @@
           + credentials.password)
       } : {};
 
-      return $http.get(serverDomain + '/user', {
+      return $http.get('/user', {
         headers: headers
       }).success(function (data) {
         principalService.setPrincipal(data.principal);

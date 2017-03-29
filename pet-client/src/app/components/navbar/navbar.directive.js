@@ -1,8 +1,6 @@
 (function() {
   'use strict';
 
-  var serverDomain = '//pet-server-team-2.pcf-apps.intware.com';
-  
   angular
     .module('petClient')
     .directive('acmeNavbar', acmeNavbar);
@@ -49,7 +47,7 @@
       };
 
       vm.logout = function() {
-        $http.post(serverDomain + '/signout', {}).finally(function() {
+        $http.post('/signout  ', {}).finally(function() {
           $rootScope.authenticated = false;
           principalService.clearPrincipal();
           $location.path('/');

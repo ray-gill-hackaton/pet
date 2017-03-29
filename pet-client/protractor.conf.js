@@ -13,7 +13,7 @@ exports.config = {
     'browserName': 'chrome'
   },
 
-  baseUrl: 'https://pet-client-team-2.pcf-apps.intware.com',
+  baseUrl: 'http://localhost:3000',
 
   // Spec patterns are relative to the current working directory when
   // protractor is called.

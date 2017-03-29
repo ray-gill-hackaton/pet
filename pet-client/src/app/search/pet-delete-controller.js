@@ -1,6 +1,8 @@
 (function() {
   'use strict';
 
+  var serverDomain = '//pet-server-team-2.pcf-apps.intware.com';
+  
   angular
     .module('petClient')
     .controller('PetDeleteController', PetDeleteController);
@@ -16,7 +18,7 @@
 
     function deletePet(petId) {
       $log.info("Deleting pet id: ", petId);
-      var url = "/pet" + "/" + petId;
+      var url = serverDomain + '/pet' + "/" + petId;
       $http.delete(url)
         .then(function () {
             $modalInstance.close(true);

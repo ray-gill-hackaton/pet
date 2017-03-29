@@ -29,13 +29,13 @@ describe('The main view', function () {
     expect(addPage.pageHeading()).toBe('Add Pet');
   });
 
-  it('should add pet', function() {
+  xit('should add pet', function() {
     addPage.clickAddPet('Blackie', 'A german shepherd');
 
     expect(addPage.successMessage.getText()).toMatch(/Added pet with id: \d+/);
   });
 
-  it('should search for pet', function() {
+  xit('should search for pet', function() {
     var addedPetId = addPage.addedPetId();
 
     menu.goToSearchPage();
@@ -47,7 +47,7 @@ describe('The main view', function () {
     expect(searchPage.searchResultName()).toBe('Blackie');
   });
 
-  it('should delete pet', function() {
+  xit('should delete pet', function() {
     searchPage.delete();
     expect(deleteModal.title()).toBe('Are you sure you want to delete Blackie?');
 
@@ -55,12 +55,12 @@ describe('The main view', function () {
     expect(searchPage.deletePetAlert()).toBe('Pet has been deleted.');
   });
 
-  it('should logout', function() {
+  xit('should logout', function() {
     menu.logout();
     expect(loginPage.isLoginVisible()).toBeTruthy();
   });
 
-  it('should user not be able to delete pet', function() {
+  xit('should user not be able to delete pet', function() {
     loginPage.login('tim', 'ollie');
     expect(addPage.pageHeading()).toBe('Add Pet');
 

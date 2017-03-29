@@ -12,40 +12,15 @@ before_install:
 - sudo apt-get update
 - sudo apt-get remove nodejs
 - sudo apt-get install nodejs
+- dpkg -S node
+- dpkg -S /usr/node
+- dpkg -S /bin/node
 - npm install -g npm@^3.10.10
 - npm install -g bower
 - npm install -g phantomjs@^2.1.1
 - npm install -g protractor
-node_js: '6.10.1'
-install:
-- mvn clean install
 script:
 - node -v
 - npm -v
 - phantomjs -v
 - cd pet-client
-- npm install
-- bower install
-- npm test
-- cd ../pet-server
-#- mkdir target
-#- cp ./pet-server/target/pet-server-*.jar ./target/
-#deploy:
-#  password:
-#    secure: wLOBSjHBXv3UZjdwLeyYlbH7FBaJZTdvO0mK2KVSl2I2sZjZj+cdyvRXVLduNY+Vn6OOg2Vx7gsKAyC/FUa9UqeZ4Gkk7npgWzwJEF+uaGTqQa8LEH7h4pum2XfvgX3PHIa8+bp5BbgxSWEv+lgKqpyu0NkjpXuGmmDtI0tQieUBbp04EraUK/XAAx7n6SeIUio6hdBQoz2NqIDb6+N0I5Dd6DwQfVlOLW+C97yqqU5wYb78UEjfNwdQ1cVmv2fgLxyT6cfG14ic2ilW80bT1cPiIo2+kY/lfVS+HMJK4s0eAC5Vm2Yqe/Yqwumhe3AhuLOL8HccAlh8s22TirmruaM7RnW1UHj8dGFsaVQB+E7QRHYPpneN/rZwW0OFPXSZoH1QA/JJELhM119W9PbhbCM2M1p1jZsJIEy9EqPfJ8PiHRp36CTxB5YmqG85pc89AjVH6mo6XtUSBSPJCCbrQKBrQ3Cfa68V0dQqeFV78PXIauH+EsO3wIS5H6e/tg3I8JpUz20CToQjs3iZ0gsZl+5Rf9sk5iy2DJAWyAnSxU67hLitJSQ+daLW2qr1N1wiXtoXbmL2cmEcQTSliHRa/d/8DbDZbzx7D0gz7IU5xGLwuqhO+RjqPYjyIR5rPaTfgZO1rEpKtnVtBJR7KFk+TaTVgsprYWShnb6ziOX4aHs=
-deploy:
-  edge: true
-  provider: cloudfoundry
-  username: Ray.Gill
-  password: 
-    secure: wLOBSjHBXv3UZjdwLeyYlbH7FBaJZTdvO0mK2KVSl2I2sZjZj+cdyvRXVLduNY+Vn6OOg2Vx7gsKAyC/FUa9UqeZ4Gkk7npgWzwJEF+uaGTqQa8LEH7h4pum2XfvgX3PHIa8+bp5BbgxSWEv+lgKqpyu0NkjpXuGmmDtI0tQieUBbp04EraUK/XAAx7n6SeIUio6hdBQoz2NqIDb6+N0I5Dd6DwQfVlOLW+C97yqqU5wYb78UEjfNwdQ1cVmv2fgLxyT6cfG14ic2ilW80bT1cPiIo2+kY/lfVS+HMJK4s0eAC5Vm2Yqe/Yqwumhe3AhuLOL8HccAlh8s22TirmruaM7RnW1UHj8dGFsaVQB+E7QRHYPpneN/rZwW0OFPXSZoH1QA/JJELhM119W9PbhbCM2M1p1jZsJIEy9EqPfJ8PiHRp36CTxB5YmqG85pc89AjVH6mo6XtUSBSPJCCbrQKBrQ3Cfa68V0dQqeFV78PXIauH+EsO3wIS5H6e/tg3I8JpUz20CToQjs3iZ0gsZl+5Rf9sk5iy2DJAWyAnSxU67hLitJSQ+daLW2qr1N1wiXtoXbmL2cmEcQTSliHRa/d/8DbDZbzx7D0gz7IU5xGLwuqhO+RjqPYjyIR5rPaTfgZO1rEpKtnVtBJR7KFk+TaTVgsprYWShnb6ziOX4aHs=
-  api: --skip-ssl-validation https://api.pcf-system.intware.com
-  organization: XtremeLearning
-  space: travis-dev
-#TODO: deploy client to CF (deploy dist folder)
-after_deploy:
-- cd ../pet-client
-- node -v
-- npm -v
-- phantomjs -v
-- gulp protractor

@@ -15,6 +15,9 @@ node_js: '6.10.1'
 install:
 - mvn clean install
 script:
+- node -v
+- npm -v
+- phantomjs -v
 - cd pet-client
 - npm install
 - bower install
@@ -37,4 +40,7 @@ deploy:
 #TODO: deploy client to CF (deploy dist folder)
 after_deploy:
 - cd ../pet-client
+- node -v
+- npm -v
+- phantomjs -v
 - gulp protractor

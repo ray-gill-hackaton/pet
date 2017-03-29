@@ -9,9 +9,10 @@ cache:
   - $HOME/pet/pet-client/node_modules
   - $HOME/pet/pet-client/bower_components
 before_install:
-- sudo apt-get update
 - sudo apt-get remove nodejs
-- sudo apt-get install nodejs
+- sudo add-apt-repository -y ppa:chris-lea/node.js
+- sudo apt-get -y update
+- sudo apt-get -y install nodejs
 - apt-cache search node
 - npm install -g npm@^3.10.10
 - npm install -g bower

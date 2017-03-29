@@ -12,9 +12,7 @@ before_install:
 - sudo apt-get update
 - sudo apt-get remove nodejs
 - sudo apt-get install nodejs
-- dpkg -S node
-- dpkg -S /usr/node
-- dpkg -S /bin/node
+- apt-cache search node
 - npm install -g npm@^3.10.10
 - npm install -g bower
 - npm install -g phantomjs@^2.1.1
